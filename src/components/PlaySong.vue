@@ -135,6 +135,9 @@ export default {
             })
             .then((data) => {
                 this.res = data.data.playlist.tracks;
+            })
+            .catch((err) => {
+                console.log(err);
             });
         // this.name = this.$store.state.SingList.name;
         // this.url = this.$store.state.SingList.al.picUrl;
