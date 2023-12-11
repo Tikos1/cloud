@@ -3,7 +3,7 @@
         class="dark:bg-black dark:text-black px-[4.5vw] bg-[#F9F9FA] h-[12.5vw] border-b-[1px] border-[#F5F8FA] flex items-center w-[100vw] fixed bottom-0 bg-[#fff] z-[10] bottom-[12vw]">
         <router-link to="/details">
             <div class="flex items-center">
-                <div class="w-[10vw] h-[10vw] relative flex items-center justify-center rotateAnimation paused-animation">
+                <div :style="{animationPlayState: player.playing == false ? 'paused':'running'}" class="w-[10vw] h-[10vw] relative flex items-center justify-center rotateAnimation paused-animation">
                     <img src="../assets/bg.png" alt="" class="absolute top-0 left-0 z-[1]"> <img :src="url" alt=""
                         class="w-[7vw] h-[7vw] rounded-[50%]">
                 </div>

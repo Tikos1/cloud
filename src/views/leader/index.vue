@@ -188,11 +188,13 @@
                 </van-tab>
             </van-tabs>
         </div>
+        <PlaySong></PlaySong>
         <CloudFooter></CloudFooter>
     </div>
 </template>
 
 <script>
+import PlaySong from '@/components/PlaySong.vue';
 import CloudFooter from '@/components/CloudFooter.vue';
 import { mv } from '@/service'
 export default {
@@ -208,7 +210,7 @@ export default {
             Japan: [],
         };
     },
-    components: { CloudFooter },
+    components: { CloudFooter,PlaySong },
     async created() {
         {
             const [err, res] = await mv({ limit: 50, area: '内地' })

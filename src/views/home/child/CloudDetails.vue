@@ -3,9 +3,8 @@
         <div class="relative h-[100vh] pb-[12vw]">
             <div class="absolute z-[3] flex flex-wrap h-[100%] pb-[7.5vw]">
                 <div class="h-[15vw] w-[100vw] flex items-center px-[4vw] justify-between">
-                        <svg @click="clickOn()"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
-                        role="img" width="1em" height="1em" viewBox="0 0 1024 1024"
+                    <svg @click="clickOn()" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 1024 1024"
                         class="dark:text-[#EEEEEE] text-[6vw] mt-[0.6vw] text-[#fff] iconify iconify--ep">
                         <g transform="rotate(180 512 512)">
                             <path fill="currentColor"
@@ -13,7 +12,7 @@
                             </path>
                         </g>
                     </svg>
-                    
+
                     <div class="text-center w-[60vw]">
                         <p class="h-[5vw] text-[4vw] text-[#fff] line-clamp-1">{{ name }}</p>
                         <p class="text-[2.8vw] text-[#BCBFBF] mt-[2vw] font-[400]">{{ singName }}
@@ -30,12 +29,14 @@
                 </div>
                 <div class="relative top-[2%] w-[100vw] h-[120vw]">
                     <div class="absolute top-[10%] left-[50%] translate-x-[-50%] z-[10] rotated w-[30vw] h-[40vw]"
-                        :style="{transform: player.playing == false ? 'rotate(-45deg)':'rotate(-7deg)'}"><img src="../../../assets/needle-ab.png" alt=""
-                            class="h-[40vw] absolute top-[-3.2vw] left-[-3.2vw]"></div>
+                        :style="{ transform: player.playing == false ? 'rotate(-45deg)' : 'rotate(-7deg)' }"><img
+                            src="../../../assets/needle-ab.png" alt="" class="h-[40vw] absolute top-[-3.2vw] left-[-3.2vw]">
+                    </div>
                     <div class="w-[80vw] h-[80vw] absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-45%]">
                         <div class="absolute w-[80vw] h-[80vw]"><img src="../../../assets/bg-details.png" alt=""
                                 class="absolute top-0 w-[80vw] h-[80vw]"> <img src="../../../assets/disc_light.png" alt=""
                                 class="w-[80vw] h-[80vw] absolute top-0"></div> <img alt=""
+                            :style="{ animationPlayState: player.playing == false ? 'paused' : 'running' }"
                             class="w-[50vw] h-[50vw] absolute top-1/2 left-1/2 rounded-[50%] border-[5px] border-[#000] rotateAnimation1 paused-animation"
                             :src="url">
                     </div>
@@ -76,74 +77,92 @@
                         </svg>
                     </div>
                     <div class="h-[8vw] w-[100vw] flex items-center px-[5vw] mt-[3vw]">
-                        <div class="text-[#fff] text-[1.6vw] scale-[0.8] opacity-80">00:05</div>
-                        <div class="flex-1 mx-[2.5vw] vue-slider vue-slider-ltr"
-                            style="padding: 7px 0px; width: auto; height: 4px;">
-                            <div class="vue-slider-rail">
-                                <div class="vue-slider-process"
-                                    style="height: 100%; top: 0px; left: 0%; transition-property: width, left; transition-duration: 0s; width: 2.69341%;">
+                        <div class="text-[#fff] text-[1.6vw] scale-[0.8] opacity-80">
+                            {{
+                                Math.floor(player.howl?.seek() / 60) < 10 ? "0" + Math.floor(player.howl?.seek() / 60) :
+                                Math.floor(player.howl?.seek() / 60) }}:{{ Math.floor(player.howl?.seek() % 60) < 10 ? "0" +
+        Math.floor(player.howl?.seek() % 60) : Math.floor(player.howl?.seek() % 60) }} </div>
+                                <div class="flex-1 mx-[2.5vw] vue-slider vue-slider-ltr"
+                                    style="padding: 7px 0px; width: auto; height: 4px;">
+                                    <div class="vue-slider-rail">
+                                        <div class="vue-slider-process"
+                                            style="height: 100%; top: 0px; left: 0%; transition-property: width, left; transition-duration: 0s;"
+                                            :style="{ 'width': player.progress * 100 + '%' }">
+                                        </div>
+                                        <div aria-valuetext="5.815072" class="vue-slider-dot" role="slider"
+                                            aria-valuenow="5.815072" aria-valuemin="0" aria-valuemax="215.9"
+                                            aria-orientation="horizontal" tabindex="0"
+                                            style="width: 14px; height: 14px; transform: translate(-50%, -50%); top: 50%; transition: left 0s ease 0s;"
+                                            :style="{ 'left': player.progress * 100 + '%' }">
+                                            <div class="vue-slider-dot-handle"></div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div aria-valuetext="5.815072" class="vue-slider-dot" role="slider" aria-valuenow="5.815072"
-                                    aria-valuemin="0" aria-valuemax="215.9" aria-orientation="horizontal" tabindex="0"
-                                    style="width: 14px; height: 14px; transform: translate(-50%, -50%); top: 50%; transition: left 0s ease 0s; left: 2.69341%;">
-                                    <div class="vue-slider-dot-handle"></div>
+                                <div class="text-[#fff] text-[1.6vw] scale-[0.8] opacity-50">
+                                    {{
+                                        Math.floor(player.howl?.duration() / 60) < 10 ? "0" + Math.floor(player.howl?.duration()
+                                            / 60) : Math.floor(player.howl?.duration() / 60) }}:{{
+            Math.floor(player.howl?.duration() % 60) }} </div>
                                 </div>
-                            </div>
+                                <div class="h-[12.3vw] flex w-[100vw] items-center justify-evenly"><svg
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 256 256"
+                                        class="text-[#fff] text-[8vw] iconify iconify--fad">
+                                        <g fill="currentColor" fill-rule="evenodd">
+                                            <path
+                                                d="M109.533 197.602a1.887 1.887 0 0 1-.034 2.76l-7.583 7.066a4.095 4.095 0 0 1-5.714-.152l-32.918-34.095c-1.537-1.592-1.54-4.162-.002-5.746l33.1-34.092c1.536-1.581 4.11-1.658 5.74-.18l7.655 6.94c.82.743.833 1.952.02 2.708l-21.11 19.659s53.036.129 71.708.064c18.672-.064 33.437-16.973 33.437-34.7c0-7.214-5.578-17.64-5.578-17.64c-.498-.99-.273-2.444.483-3.229l8.61-8.94c.764-.794 1.772-.632 2.242.364c0 0 9.212 18.651 9.212 28.562c0 28.035-21.765 50.882-48.533 50.882c-26.769 0-70.921.201-70.921.201l20.186 19.568z">
+                                            </path>
+                                            <path
+                                                d="M144.398 58.435a1.887 1.887 0 0 1 .034-2.76l7.583-7.066a4.095 4.095 0 0 1 5.714.152l32.918 34.095c1.537 1.592 1.54 4.162.002 5.746l-33.1 34.092c-1.536 1.581-4.11 1.658-5.74.18l-7.656-6.94c-.819-.743-.832-1.952-.02-2.708l21.111-19.659s-53.036-.129-71.708-.064c-18.672.064-33.437 16.973-33.437 34.7c0 7.214 5.578 17.64 5.578 17.64c.498.99.273 2.444-.483 3.229l-8.61 8.94c-.764.794-1.772.632-2.242-.364c0 0-9.212-18.65-9.212-28.562c0-28.035 21.765-50.882 48.533-50.882c26.769 0 70.921-.201 70.921-.201l-20.186-19.568z">
+                                            </path>
+                                        </g>
+                                    </svg> <svg xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
+                                        height="1em" viewBox="0 0 16 16" class="text-[#fff] iconify iconify--fluent">
+                                        <path fill="currentColor"
+                                            d="M14 3.002a1 1 0 0 0-1.578-.816l-7 4.963a1 1 0 0 0-.007 1.628l7 5.037A1 1 0 0 0 14 13.003V3.002ZM2 2.5a.5.5 0 0 1 1 0v11a.5.5 0 0 1-1 0v-11Z">
+                                        </path>
+                                    </svg>
+                                    <div @click="player.toggle()"
+                                        class="w-[12vw] h-[12vw] rounded-[50%] bg-[#fff] flex items-center justify-center">
+                                        <svg v-if="player.playing == false" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                            width="20px" height="20px" viewBox="0 0 256 256" class="iconify iconify--ph">
+                                            <path fill="currentColor"
+                                                d="M240 128a15.74 15.74 0 0 1-7.6 13.51L88.32 229.65a16 16 0 0 1-16.2.3A15.86 15.86 0 0 1 64 216.13V39.87a15.86 15.86 0 0 1 8.12-13.82a16 16 0 0 1 16.2.3l144.08 88.14A15.74 15.74 0 0 1 240 128Z">
+                                            </path>
+                                        </svg>
+                                        <svg v-if="player.playing == true" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                            width="20px" height="20px" viewBox="0 0 32 32" class="iconify iconify--carbon">
+                                            <path fill="currentColor"
+                                                d="M12 6h-2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm10 0h-2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z">
+                                            </path>
+                                        </svg>
+                                    </div> <svg xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
+                                        height="1em" viewBox="0 0 20 20" class="text-[#fff] iconify iconify--fluent">
+                                        <path fill="currentColor"
+                                            d="M3 4.252c0-1 1.116-1.595 1.947-1.038l8.499 5.707a1.25 1.25 0 0 1 .007 2.071l-8.5 5.793A1.25 1.25 0 0 1 3 15.752v-11.5ZM17 3.5a.5.5 0 0 0-1 0v13a.5.5 0 1 0 1 0v-13Z">
+                                        </path>
+                                    </svg> <svg xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
+                                        height="1em" viewBox="0 0 24 24"
+                                        class="text-[6vw] text-[#fff] iconify iconify--iconamoon">
+                                        <path fill="currentColor" fill-rule="evenodd"
+                                            d="M7 6a1 1 0 0 1-.5.866l-3 1.732A1 1 0 0 1 2 7.732V4.268a1 1 0 0 1 1.5-.866l3 1.732A1 1 0 0 1 7 6Zm-4 5a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3Zm6-5a1 1 0 0 1 1-1h11a1 1 0 1 1 0 2H10a1 1 0 0 1-1-1ZM3 17a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3Z"
+                                            clip-rule="evenodd">
+                                        </path>
+                                    </svg>
+                                </div>
                         </div>
-                        <div class="text-[#fff] text-[1.6vw] scale-[0.8] opacity-50">03:35</div>
                     </div>
-                    <div class="h-[12.3vw] flex w-[100vw] items-center justify-evenly"><svg
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
-                            role="img" width="1em" height="1em" viewBox="0 0 256 256"
-                            class="text-[#fff] text-[8vw] iconify iconify--fad">
-                            <g fill="currentColor" fill-rule="evenodd">
-                                <path
-                                    d="M109.533 197.602a1.887 1.887 0 0 1-.034 2.76l-7.583 7.066a4.095 4.095 0 0 1-5.714-.152l-32.918-34.095c-1.537-1.592-1.54-4.162-.002-5.746l33.1-34.092c1.536-1.581 4.11-1.658 5.74-.18l7.655 6.94c.82.743.833 1.952.02 2.708l-21.11 19.659s53.036.129 71.708.064c18.672-.064 33.437-16.973 33.437-34.7c0-7.214-5.578-17.64-5.578-17.64c-.498-.99-.273-2.444.483-3.229l8.61-8.94c.764-.794 1.772-.632 2.242.364c0 0 9.212 18.651 9.212 28.562c0 28.035-21.765 50.882-48.533 50.882c-26.769 0-70.921.201-70.921.201l20.186 19.568z">
-                                </path>
-                                <path
-                                    d="M144.398 58.435a1.887 1.887 0 0 1 .034-2.76l7.583-7.066a4.095 4.095 0 0 1 5.714.152l32.918 34.095c1.537 1.592 1.54 4.162.002 5.746l-33.1 34.092c-1.536 1.581-4.11 1.658-5.74.18l-7.656-6.94c-.819-.743-.832-1.952-.02-2.708l21.111-19.659s-53.036-.129-71.708-.064c-18.672.064-33.437 16.973-33.437 34.7c0 7.214 5.578 17.64 5.578 17.64c.498.99.273 2.444-.483 3.229l-8.61 8.94c-.764.794-1.772.632-2.242-.364c0 0-9.212-18.65-9.212-28.562c0-28.035 21.765-50.882 48.533-50.882c26.769 0 70.921-.201 70.921-.201l-20.186-19.568z">
-                                </path>
-                            </g>
-                        </svg> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16"
-                            class="text-[#fff] iconify iconify--fluent">
-                            <path fill="currentColor"
-                                d="M14 3.002a1 1 0 0 0-1.578-.816l-7 4.963a1 1 0 0 0-.007 1.628l7 5.037A1 1 0 0 0 14 13.003V3.002ZM2 2.5a.5.5 0 0 1 1 0v11a.5.5 0 0 1-1 0v-11Z">
-                            </path>
-                        </svg>
-                        <div @click="player.toggle()" class="w-[12vw] h-[12vw] rounded-[50%] bg-[#fff] flex items-center justify-center">
-                            <svg v-if="player.playing == false"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                aria-hidden="true" role="img" width="20px" height="20px" viewBox="0 0 256 256"
-                                class="iconify iconify--ph">
-                                <path fill="currentColor"
-                                    d="M240 128a15.74 15.74 0 0 1-7.6 13.51L88.32 229.65a16 16 0 0 1-16.2.3A15.86 15.86 0 0 1 64 216.13V39.87a15.86 15.86 0 0 1 8.12-13.82a16 16 0 0 1 16.2.3l144.08 88.14A15.74 15.74 0 0 1 240 128Z">
-                                </path>
-                            </svg>
-                            <svg v-if="player.playing == true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="20px" height="20px" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 6h-2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm10 0h-2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"></path></svg>
-                        </div> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 20 20"
-                            class="text-[#fff] iconify iconify--fluent">
-                            <path fill="currentColor"
-                                d="M3 4.252c0-1 1.116-1.595 1.947-1.038l8.499 5.707a1.25 1.25 0 0 1 .007 2.071l-8.5 5.793A1.25 1.25 0 0 1 3 15.752v-11.5ZM17 3.5a.5.5 0 0 0-1 0v13a.5.5 0 1 0 1 0v-13Z">
-                            </path>
-                        </svg> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24"
-                            class="text-[6vw] text-[#fff] iconify iconify--iconamoon">
-                            <path fill="currentColor" fill-rule="evenodd"
-                                d="M7 6a1 1 0 0 1-.5.866l-3 1.732A1 1 0 0 1 2 7.732V4.268a1 1 0 0 1 1.5-.866l3 1.732A1 1 0 0 1 7 6Zm-4 5a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3Zm6-5a1 1 0 0 1 1-1h11a1 1 0 1 1 0 2H10a1 1 0 0 1-1-1ZM3 17a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3Z"
-                                clip-rule="evenodd">
-                            </path>
-                        </svg>
+                    <div class="element fixed z-[1] top-0 left-0 right-0 bottom-0"
+                        :style="{ backgroundImage: 'url(' + url + ')' }">
                     </div>
+                    <div class="fixed z-[2] bgColor top-0 left-0 right-0 bottom-0"></div>
                 </div>
             </div>
-            <div class="element fixed z-[1] top-0 left-0 right-0 bottom-0"
-            :style="{backgroundImage:'url(' + url + ')'}">
-            </div>
-            <div class="fixed z-[2] bgColor top-0 left-0 right-0 bottom-0"></div>
-        </div>
-    </div>
 </template>
 
 <script>
@@ -152,18 +171,18 @@ export default {
 
     data() {
         return {
-            name:'',
-            singName:'',
-            url:''
+            name: '',
+            singName: '',
+            url: ''
         };
     },
-    created(){
+    created() {
         this.name = this.$store.state.SingList.name
         this.url = this.$store.state.SingList.al.picUrl
         this.singName = this.$store.state.SingList.ar[0].name
     },
     methods: {
-        clickOn(){
+        clickOn() {
             this.$router.go(-1)
         }
     },

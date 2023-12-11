@@ -128,11 +128,13 @@
                 </div>
             </div>
         </div>
+        <PlaySong></PlaySong>
         <CloudFooter></CloudFooter>
     </div>
 </template>
 
 <script>
+import PlaySong from '@/components/PlaySong.vue';
 import CloudFooter from '@/components/CloudFooter.vue';
 import { my,found,discover,details } from '@/service';
 export default {
@@ -152,7 +154,7 @@ export default {
             follows:''
         }
     },
-    components: { CloudFooter },
+    components: { CloudFooter,PlaySong },
     async created() {
         {
             const [err, res] = await my()
