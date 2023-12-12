@@ -6,6 +6,7 @@ import Playlist from '@/views/home/child/CloudPlaylist'
 import Leader from '@/views/leader'
 import Video from '@/views//leader/child/video'
 import Details from '@/views/home/child/CloudDetails'
+import Search from '@/views/home/child/CloudSearch'
 
 export default [
     {
@@ -51,5 +52,10 @@ export default [
         path:'/details',
         name:'details',
         component:Details
+    },
+    {
+        path:'/search',
+        name:'search',
+        component:Search
     }
 ]
