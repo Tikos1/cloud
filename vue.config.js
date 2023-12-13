@@ -1,4 +1,5 @@
 const { defineConfig } = require('@vue/cli-service')
+const { sentryWebpackPlugin } = require("@sentry/webpack-plugin");
 module.exports = defineConfig({
   transpileDependencies: true,
   // 设置正向代理服务器

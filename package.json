@@ -12,6 +12,7 @@
     "@better-scroll/observe-dom": "^2.5.1",
     "@better-scroll/scroll-bar": "^2.5.1",
     "@sentry/vue": "^7.86.0",
+    "@sentry/webpack-plugin": "^2.10.2",
     "autoprefixer": "^10.4.16",
     "axios": "^1.6.2",
     "axios-retry": "^4.0.0",
