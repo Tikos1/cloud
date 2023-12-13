@@ -139,7 +139,7 @@
                                                 d="M12 6h-2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm10 0h-2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z">
                                             </path>
                                         </svg>
-                                    </div> <svg xmlns="http://www.w3.org/2000/svg"
+                                    </div> <svg xmlns="http://www.w3.org/2000/svg" @click="next()"
                                         xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
                                         height="1em" viewBox="0 0 20 20" class="text-[#fff] iconify iconify--fluent">
                                         <path fill="currentColor"
@@ -166,6 +166,8 @@
 </template>
 
 <script>
+// import player from '@/components/AudioPlayer/player';
+
 export default {
     name: 'WorkspaceJsonCloudDetails',
 
@@ -176,7 +178,7 @@ export default {
             url: ''
         };
     },
-    created() {
+    updated() {
         this.name = this.$store.state.SingList.name
         this.url = this.$store.state.SingList.al.picUrl
         this.singName = this.$store.state.SingList.ar[0].name
@@ -184,6 +186,9 @@ export default {
     methods: {
         clickOn() {
             this.$router.go(-1)
+        },
+        next(){
+            this.player.playNextTrack();
         }
     },
 };

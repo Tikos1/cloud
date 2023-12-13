@@ -351,9 +351,10 @@ export default {
         },
         addID(id,index) {
             this.player.flag++;
-            this.player.palyTrack(id)
             this.$store.commit('dataTwo',id)
             this.$store.commit('SingList',this.res[index])
+            this.player.index = index;
+            this.player.replaceTracks(this.res.map(({id})=>id))
         },
         playAll(){
             this.player.flag++;

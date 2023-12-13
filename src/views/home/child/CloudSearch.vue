@@ -112,20 +112,20 @@
                     <div class="w-[100vw] overflow-hidden mt-[5vw]">
                         <van-swipe class="my-swipe" indicator-color="white" :width="300" :loop="false"
                             :show-indicators="false">
-                            <van-swipe-item>
+                            <van-swipe-item class="dark:bg-[#31333a]">
                                 <div
                                     class="dark:border-b-[#43454c] ml-[2vw] w-[72vw] h-[12.422vw] flex items-center border-b-[1px] border-b-[#eaeaea]">
                                     <span
                                         class="text-[4vw] text-[#2a344b] dark:text-[#fff] mr-[3.359vw] ml-[4vw]">飙升榜</span>
                                     <div
-                                        class="h-[5.235vw] bg-[#f3f4f1] dark:bg-[#393b42] flex items-center px-[2vw] rounded-[3vw]">
+                                        class="h-[5.235vw] bg-[#f3f4f1] dark:bg-[red] flex items-center px-[2vw] rounded-[3vw]">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                             aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24"
                                             class="text-[#323c52] dark:text-[#fff] mr-[0.7vw] text-[2.6vw] iconify iconify--solar">
                                             <path fill="currentColor"
                                                 d="M21.409 9.353a2.998 2.998 0 0 1 0 5.294L8.597 21.614C6.534 22.737 4 21.277 4 18.968V5.033c0-2.31 2.534-3.769 4.597-2.648z">
                                             </path>
-                                        </svg> <span class="text-[2.6vw] text-[#323c52] dark:text-[#fff]">播放</span></div>
+                                        </svg> <span class="text-[2.6vw] text-[#323c52] dark:text-[#fff] ">播放</span></div>
                                 </div>
                                 <div class="pr-[2vw]">
                                     <div class="my-[2.7vw] flex items-center h-[8vw]"><span
@@ -270,4 +270,11 @@ export default {
     background-color: white;
     margin-left: 2.344vw;
     border-radius: 2vw;
-}</style>
+}
+
+:is(.dark .dark\:bg-\[\#31333a\]) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(49 51 58 / var(--tw-bg-opacity));
+}
+
+</style>

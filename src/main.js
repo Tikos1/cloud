@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/vue";
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -10,13 +11,21 @@ import ScrollBar from '@better-scroll/scroll-bar'
 import { Image as VanImage } from 'vant';
 import { Swipe, SwipeItem, Popup, Switch, Field, Button, Collapse, CollapseItem, Circle, Tab, Tabs, NoticeBar, Sticky, Badge, IndexBar, IndexAnchor, Cell, PasswordInput, NumberKeyboard, Checkbox, CheckboxGroup } from 'vant';
 import AudioPlayer from '@/components/AudioPlayer'
-// Vue.$use = function (module){
-//   if(typeof module === 'function'){
-//     module(this)
-//   }else if(typeof module.install === 'function'){
-//     module.install(this)
-//   }
-// }
+
+Sentry.init({
+  Vue,
+  dsn: "https://840c0d8ce48047e5bcf30bb78afe4b92@o4506386949734400.ingest.sentry.io/4506386975817728",
+  integrations: [
+    new Sentry.BrowserTracing({
+      routingInstrumentation: Sentry.vueRouterInstrumentation(router),
+      tracePropagationTargets: [],
+    }),
+  ],
+  tracesSampleRate: 1.0,
+  replaysSessionSampleRate: 0.1,
+  replaysOnErrorSampleRate: 1.0,
+});
+
 
 Vue.config.productionTip = false
 Vue.use(AudioPlayer);
