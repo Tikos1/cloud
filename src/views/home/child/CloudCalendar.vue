@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="this.res.uiElement">
         <div class="dark:border-[#2d2f36] w-[100vw] px-[4vw] border-t-[1px] border-[#EBEDF2]">
             <div class="flex justify-between items-center h-[12vw]">
                 <div class="flex items-center"><span
