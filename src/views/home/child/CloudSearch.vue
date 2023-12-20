@@ -128,107 +128,12 @@
                                         </svg> <span class="text-[2.6vw] text-[#323c52] dark:text-[#fff] ">播放</span></div>
                                 </div>
                                 <div class="pr-[2vw]">
-                                    <div class="my-[2.7vw] flex items-center h-[8vw]"><span
+                                    <div v-for="item,index in res" :key="index" class="my-[2.7vw] flex items-center h-[8vw]"><span
                                             class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                            style="color: red;">1</span> <span
-                                            class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">爱丫爱丫
-                                            (live)</span></div>
-                                    <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                            class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                            style="color: red;">2</span> <span
-                                            class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">初雪</span>
+                                            :class="index >= 3 ? 'text-[#999999]' : 'text-[red]'">{{ index+1 }}</span> <span
+                                            class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">{{item.searchWord}}</span>
                                     </div>
-                                    <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                            class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                            style="color: red;">3</span> <span
-                                            class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">冬天的秘密</span>
-                                    </div>
-                                    <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                            class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                            style="color: rgb(133, 131, 147);">4</span> <span
-                                            class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">Nothin'
-                                            on Me</span></div>
-                                    <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                            class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                            style="color: rgb(133, 131, 147);">5</span> <span
-                                            class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">十二月的奇迹</span>
-                                    </div>
-                                    <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                            class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                            style="color: rgb(133, 131, 147);">6</span> <span
-                                            class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">one
-                                            more time</span></div>
-                                    <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                            class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                        style="color: rgb(133, 131, 147);">7</span> <span
-                                        class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">Where
-                                        Did U Go</span></div>
-                                <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                        class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                        style="color: rgb(133, 131, 147);">8</span> <span
-                                        class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">幕后生活</span>
                                 </div>
-                                <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                        class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                        style="color: rgb(133, 131, 147);">9</span> <span
-                                        class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">Goodbye
-                                        My Baby</span></div>
-                                <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                        class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                        style="color: rgb(133, 131, 147);">10</span> <span
-                                        class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">有的人</span>
-                                </div>
-                                <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                        class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                        style="color: rgb(133, 131, 147);">11</span> <span
-                                        class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">夜郎溪</span>
-                                </div>
-                                <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                        class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                        style="color: rgb(133, 131, 147);">12</span> <span
-                                        class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">绽放Bloom</span>
-                                </div>
-                                <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                        class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                        style="color: rgb(133, 131, 147);">13</span> <span
-                                        class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">认真的雪</span>
-                                </div>
-                                <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                        class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                        style="color: rgb(133, 131, 147);">14</span> <span
-                                        class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">老人与海
-                                        (live)</span></div>
-                                <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                        class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                        style="color: rgb(133, 131, 147);">15</span> <span
-                                        class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">风与花Wind
-                                        &amp; Flowers</span></div>
-                                <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                        class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                        style="color: rgb(133, 131, 147);">16</span> <span
-                                        class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">黄昏晓</span>
-                                </div>
-                                <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                        class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                        style="color: rgb(133, 131, 147);">17</span> <span
-                                        class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">岁月
-                                        (live)</span></div>
-                                <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                        class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                        style="color: rgb(133, 131, 147);">18</span> <span
-                                        class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">I
-                                        watch the moon (Slowed + Reverb)</span></div>
-                                <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                        class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                        style="color: rgb(133, 131, 147);">19</span> <span
-                                        class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">蓓蕾Bud</span>
-                                </div>
-                                <div class="my-[2.7vw] flex items-center h-[8vw]"><span
-                                        class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]"
-                                        style="color: rgb(133, 131, 147);">20</span> <span
-                                        class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">天后</span>
-                                </div>
-                            </div>
                         </van-swipe-item>
                         <van-swipe-item>2</van-swipe-item>
                         <van-swipe-item>3</van-swipe-item>
@@ -247,21 +152,21 @@
 </div></template>
 
 <script>
+import { hotSearch } from '@/service'
 export default {
     name: 'WorkspaceJsonCloudSearch',
 
     data() {
         return {
-
+            res:[]
         };
     },
 
-    mounted() {
-
-    },
-
-    methods: {
-
+    async created(){
+        const [err, res] = await hotSearch()
+        if (!err) {
+            this.res = res.data.data;
+        }
     },
 };
 </script>

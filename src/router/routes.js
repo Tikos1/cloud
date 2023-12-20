@@ -7,6 +7,7 @@ import Leader from '@/views/leader'
 import Video from '@/views//leader/child/video'
 import Details from '@/views/home/child/CloudDetails'
 import Search from '@/views/home/child/CloudSearch'
+import Review from '@/views/home/child/CloudReview'
 
 export default [
     {
@@ -57,5 +58,10 @@ export default [
         path:'/search',
         name:'search',
         component:Search
+    },
+    {
+        path:'/review',
+        name:'review',
+        component:Review
     }
 ]

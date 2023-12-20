@@ -76,6 +76,16 @@ export default class {
         const nextTrack = this.getNextTrack();
         this.palyTrack(nextTrack);
     }
+    playTopTrack() {
+        const TopTrack = this.getTopTrack();
+        this.palyTrack(TopTrack);
+    }
+    getTopTrack() {
+        if (this.loopMode == 1) return this.tracks[this.index];
+        const currentTrackIsTop = this.index - 1 == this.tracks.length;
+        if (currentTrackIsTop && this.loopMode == 0) return this.tracks[(this.index = 0)];
+        return this.tracks[--this.index];
+    }
     getNextTrack() {
         if (this.loopMode == 1) return this.tracks[this.index];
         const currentTrackIsLast = this.index + 1 == this.tracks.length;

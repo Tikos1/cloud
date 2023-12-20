@@ -62,13 +62,18 @@
                             <path fill="currentColor"
                                 d="M30 30h-2v-5a5.006 5.006 0 0 0-5-5v-2a7.008 7.008 0 0 1 7 7zm-8 0h-2v-5a5.006 5.006 0 0 0-5-5H9a5.006 5.006 0 0 0-5 5v5H2v-5a7.008 7.008 0 0 1 7-7h6a7.008 7.008 0 0 1 7 7zM20 2v2a5 5 0 0 1 0 10v2a7 7 0 0 0 0-14zm-8 2a5 5 0 1 1-5 5a5 5 0 0 1 5-5m0-2a7 7 0 1 0 7 7a7 7 0 0 0-7-7z">
                             </path>
-                        </svg> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        </svg> 
+                        <router-link to="/review">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24"
                             class="text-[6vw] text-[#fff] iconify iconify--uil">
                             <path fill="currentColor"
                                 d="M12 2A10 10 0 0 0 2 12a9.89 9.89 0 0 0 2.26 6.33l-2 2a1 1 0 0 0-.21 1.09A1 1 0 0 0 3 22h9a10 10 0 0 0 0-20Zm0 18H5.41l.93-.93a1 1 0 0 0 0-1.41A8 8 0 1 1 12 20Zm5-9H7a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2Zm-2 4H9a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2ZM9 9h6a1 1 0 0 0 0-2H9a1 1 0 0 0 0 2Z">
                             </path>
-                        </svg> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        </svg> 
+                        </router-link>
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24"
                             class="text-[6vw] text-[#fff] iconify iconify--ri">
                             <path fill="currentColor"
@@ -116,7 +121,7 @@
                                                 d="M144.398 58.435a1.887 1.887 0 0 1 .034-2.76l7.583-7.066a4.095 4.095 0 0 1 5.714.152l32.918 34.095c1.537 1.592 1.54 4.162.002 5.746l-33.1 34.092c-1.536 1.581-4.11 1.658-5.74.18l-7.656-6.94c-.819-.743-.832-1.952-.02-2.708l21.111-19.659s-53.036-.129-71.708-.064c-18.672.064-33.437 16.973-33.437 34.7c0 7.214 5.578 17.64 5.578 17.64c.498.99.273 2.444-.483 3.229l-8.61 8.94c-.764.794-1.772.632-2.242-.364c0 0-9.212-18.65-9.212-28.562c0-28.035 21.765-50.882 48.533-50.882c26.769 0 70.921-.201 70.921-.201l-20.186-19.568z">
                                             </path>
                                         </g>
-                                    </svg> <svg xmlns="http://www.w3.org/2000/svg"
+                                    </svg> <svg @click="topList" xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em"
                                         height="1em" viewBox="0 0 16 16" class="text-[#fff] iconify iconify--fluent">
                                         <path fill="currentColor"
@@ -166,8 +171,6 @@
 </template>
 
 <script>
-// import player from '@/components/AudioPlayer/player';
-
 export default {
     name: 'WorkspaceJsonCloudDetails',
 
@@ -178,6 +181,7 @@ export default {
             url: ''
         };
     },
+    
     updated() {
         this.name = this.$store.state.SingList.name
         this.url = this.$store.state.SingList.al.picUrl
@@ -189,6 +193,9 @@ export default {
         },
         next(){
             this.player.playNextTrack();
+        },
+        topList(){
+            this.player.playTopTrack()
         }
     },
 };

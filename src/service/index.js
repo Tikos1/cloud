@@ -114,3 +114,8 @@ export const mvAddress = (params) =>{
 export const getTrackDetail =(ids)=>{
     return co(request.get("/song/detail",{params:{ids}}));
 }
+
+// 热搜榜
+export const hotSearch = (params) =>{
+    return co(request.get(`/search/hot/detail`,{params}));
+}
